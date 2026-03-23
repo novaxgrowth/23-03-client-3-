@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Growth X Nova · Elevate Your Growth Journey</title>
+    <!-- Google Fonts + Simple Icons (Font Awesome) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f8fafc 0%, #eef2f7 100%);
+            color: #0a1e2f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* container utility */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* hero / landing main section */
+        .landing {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* animated gradient blob background */
+        .bg-blob {
+            position: absolute;
+            width: 50vw;
+            height: 50vw;
+            max-width: 700px;
+            max-height: 700px;
+            background: radial-gradient(circle, rgba(36,160,237,0.12) 0%, rgba(20,120,200,0.02) 80%);
+            border-radius: 60% 40% 50% 50%;
+            filter: blur(80px);
+            z-index: 0;
+            animation: floatBlob 18s infinite alternate ease-in-out;
+        }
+
+        .blob1 {
+            top: 10%;
+            left: -5%;
+            background: radial-gradient(circle, rgba(0,168,232,0.15), rgba(34,211,238,0.05));
+        }
+
+        .blob2 {
+            bottom: 5%;
+            right: -10%;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(114,46,209,0.1), rgba(59,130,246,0.02));
+            animation-duration: 22s;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(4%, 6%) scale(1.08); }
+        }
+
+        /* main card */
+        .hero-card {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 3rem;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.02);
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 880px;
+            margin: 2rem auto;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.7);
+            z-index: 2;
+        }
+
+        @media (min-width: 640px) {
+            .hero-card {
+                padding: 3rem 3rem;
+            }
+        }
+
+        /* channel header */
+        .channel-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            text-align: center;
+        }
+
+        @media (min-width: 560px) {
+            .channel-header {
+                justify-content: flex-start;
+                text-align: left;
+            }
+        }
+
+        .logo-wrapper {
+            background: linear-gradient(135deg, #0b2b44, #0f3b5c);
+            width: 96px;
+            height: 96px;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 18px 25px -12px rgba(0,100,200,0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .logo-wrapper i {
+            font-size: 3.8rem;
+            color: white;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .channel-title h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #0f2b3d, #1c5a8b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .channel-title .telegram-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e9f2fa;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1e6f9f;
+            margin-top: 8px;
+        }
+
+        .telegram-badge i {
+            font-size: 1rem;
+            color: #26A5E4;
+        }
+
+        /* join button */
+        .join-area {
+            margin: 2rem 0 1.8rem;
+            text-align: center;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            background: #1e6f9f;
+            background: linear-gradient(105deg, #1e6f9f 0%, #0f4c6f 100%);
+            padding: 1rem 2.5rem;
+            border-radius: 70px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: all 0.25s;
+            box-shadow: 0 12px 20px -12px rgba(0,80,120,0.4);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+        }
+
+        .telegram-btn i {
+            font-size: 1.7rem;
+            transition: transform 0.2s;
+        }
+
+        .telegram-btn:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(105deg, #2382b8, #126a91);
+            box-shadow: 0 20px 25px -12px #1e6f9f60;
+        }
+
+        .telegram-btn:active {
+            transform: translateY(2px);
+        }
+
+        .link-meta {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #3a6d8c;
+            font-weight: 500;
+            background: rgba(30,111,159,0.08);
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 40px;
+        }
+
+        /* about section */
+        .about-section {
+            margin-top: 2.4rem;
+            border-top: 2px dashed rgba(30,111,159,0.25);
+            padding-top: 2rem;
+        }
+
+        .about-section h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0b3b55;
+        }
+
+        .about-section h3 i {
+            color: #1e6f9f;
+            font-size: 1.6rem;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: #1e2f3c;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .feature-item {
+            background: #ffffffcc;
+            backdrop-filter: blur(2px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #145c83;
+            border: 1px solid rgba(30,111,159,0.3);
+        }
+
+        .feature-item i {
+            font-size: 0.9rem;
+            color: #26A5E4;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            text-align: center;
+            color: #5a7387;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 1.5rem;
+        }
+
+        /* ripple / hover effects */
+        .telegram-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* simple responsive touches */
+        @media (max-width: 520px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .hero-card {
+                padding: 1.8rem;
+            }
+            .channel-title h1 {
+                font-size: 1.7rem;
+            }
+            .logo-wrapper {
+                width: 75px;
+                height: 75px;
+                border-radius: 24px;
+            }
+            .logo-wrapper i {
+                font-size: 2.8rem;
+            }
+            .telegram-btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+            .about-section h3 {
+                font-size: 1.35rem;
+            }
+        }
+
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e6f9f;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="landing">
+    <div class="bg-blob blob1"></div>
+    <div class="bg-blob blob2"></div>
+
+    <div class="container">
+        <div class="hero-card">
+            <!-- Channel branding area: name + logo -->
+            <div class="channel-header">
+                <div class="logo-wrapper">
+                    <!-- Telegram styled logo: custom icon representing Growth & Nova vibes -->
+                    <i class="fab fa-telegram-plane"></i>
+                </div>
+                <div class="channel-title">
+                    <h1>Growth X Nova</h1>
+                    <div class="telegram-badge">
+                        <i class="fab fa-telegram"></i>
+                        <span>Official Telegram Channel</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Join Button + direct link to telegram -->
+            <div class="join-area">
+                <a href="https://t.me/novaxgrowth" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+                    <i class="fab fa-telegram"></i> 
+                    Join our Telegram Channel
+                    <i class="fas fa-arrow-right" style="font-size: 1.1rem;"></i>
+                </a>
+                <div class="link-meta">
+                    <i class="fas fa-users"></i>  @novaxgrowth · exclusive insights
+                </div>
+            </div>
+
+            <!-- About section (small but impactful) -->
+            <div class="about-section">
+                <h3>
+                    <i class="fas fa-bolt"></i> 
+                    About Growth X Nova
+                </h3>
+                <div class="about-text">
+                    <p><strong>Growth X Nova</strong> is a next-gen Telegram community built for ambitious minds. We share daily strategies on business scaling, personal development, high-value resources, and emerging market trends. Whether you're an entrepreneur, creator, or growth enthusiast — this channel fuels your journey with actionable insights, exclusive tools, and a network of forward-thinkers.</p>
+                </div>
+                <div class="feature-grid">
+                    <span class="feature-item"><i class="fas fa-chart-line"></i> Growth tactics</span>
+                    <span class="feature-item"><i class="fas fa-brain"></i> Mindset mastery</span>
+                    <span class="feature-item"><i class="fas fa-hand-holding-usd"></i> Insider resources</span>
+                    <span class="feature-item"><i class="fas fa-comments"></i> Community power</span>
+                </div>
+                <div class="about-text" style="margin-top: 0.8rem; font-size: 0.95rem;">
+                    ✨ Join <strong>+2,300 members</strong> already leveling up. No spam — pure value delivered daily. Click the button above and become part of the nova movement.
+                </div>
+            </div>
+
+            <div class="footer-note">
+                <i class="fab fa-telegram"></i>  Instant access · Free channel ·  <i class="fas fa-shield-alt"></i>  Privacy focused
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- optional micro interaction (just to add subtle dynamic feel) -->
+<script>
+    (function() {
+        // small hover effect for buttons (nothing intrusive)
+        const btn = document.querySelector('.telegram-btn');
+        if(btn) {
+            btn.addEventListener('click', (e) => {
+                // just telemetry feel, no actual prevent, just a subtle ripple effect simulation
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple-effect';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                ripple.style.transition = 'transform 0.5s ease-out, opacity 0.6s';
+                ripple.style.opacity = '1';
+                ripple.style.pointerEvents = 'none';
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                btn.style.position = 'relative';
+                btn.style.overflow = 'hidden';
+                btn.appendChild(ripple);
+                setTimeout(() => {
+                    ripple.style.transform = 'translate(-50%, -50%) scale(4)';
+                    ripple.style.opacity = '0';
+                }, 20);
+                setTimeout(() => {
+                    if(ripple && ripple.remove) ripple.remove();
+                }, 500);
+            });
+        }
+    })();
+</script>
+
+<!-- ensure that all external content is safe and high-quality, telegram link opens correctly -->
+</body>
+</html>
