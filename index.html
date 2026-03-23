@@ -124,8 +124,6 @@
             justify-content: center;
             box-shadow: 0 18px 25px -12px rgba(0,100,200,0.3);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-            position: relative;
             overflow: hidden;
         }
 
@@ -134,39 +132,11 @@
             box-shadow: 0 20px 30px -12px rgba(0,100,200,0.4);
         }
 
-        .logo-wrapper i {
-            font-size: 3.8rem;
-            color: white;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-        }
-
         .logo-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 32px;
-        }
-
-        /* upload tooltip */
-        .upload-tooltip {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.7);
-            color: white;
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.2s;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .logo-wrapper:hover .upload-tooltip {
-            opacity: 1;
         }
 
         .channel-title h1 {
@@ -331,9 +301,6 @@
                 height: 75px;
                 border-radius: 24px;
             }
-            .logo-wrapper i {
-                font-size: 2.8rem;
-            }
             .telegram-btn {
                 padding: 0.8rem 1.8rem;
                 font-size: 1rem;
@@ -355,34 +322,6 @@
             background: #1e6f9f;
             border-radius: 10px;
         }
-
-        /* reset button style */
-        .reset-logo-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(30,111,159,0.9);
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            backdrop-filter: blur(8px);
-            z-index: 100;
-            transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .reset-logo-btn:hover {
-            background: #1e6f9f;
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 <body>
@@ -393,10 +332,11 @@
 
     <div class="container">
         <div class="hero-card">
-            <!-- Channel branding area: name + logo with click to upload feature -->
-            <div class="logo-wrapper">
-    <img src="logo.png" alt="Growth X Nova Logo">
-</div>
+            <!-- Channel branding area: name + logo with image tag -->
+            <div class="channel-header">
+                <div class="logo-wrapper">
+                    <img src="logo.png" alt="Growth X Nova Logo">
+                </div>
                 <div class="channel-title">
                     <h1>Growth X Nova</h1>
                     <div class="telegram-badge">
@@ -445,81 +385,8 @@
     </div>
 </div>
 
-<!-- Reset Logo Button (optional, appears after custom upload) -->
-<button class="reset-logo-btn" id="resetLogoBtn" style="display: none;">
-    <i class="fas fa-undo-alt"></i> Reset Logo
-</button>
-
 <script>
     (function() {
-        // Logo upload functionality
-        const logoWrapper = document.getElementById('logoWrapper');
-        const resetBtn = document.getElementById('resetLogoBtn');
-        
-        // Create hidden file input
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
-        fileInput.accept = 'image/*';
-        fileInput.style.display = 'none';
-        document.body.appendChild(fileInput);
-        
-        // Store original content to reset later
-        const originalContent = '<i class="fab fa-telegram-plane" id="logoIcon"></i><span class="upload-tooltip">Click to change logo</span>';
-        
-        // Function to check if custom logo is active and show reset button
-        function updateResetButton() {
-            const hasCustomLogo = logoWrapper.querySelector('img') !== null;
-            resetBtn.style.display = hasCustomLogo ? 'flex' : 'none';
-        }
-        
-        // Handle logo click
-        logoWrapper.addEventListener('click', (e) => {
-            // Don't trigger if clicking on tooltip
-            if (e.target.classList && e.target.classList.contains('upload-tooltip')) {
-                return;
-            }
-            fileInput.click();
-        });
-        
-        // Handle file selection
-        fileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file && file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    // Clear wrapper and add image
-                    logoWrapper.innerHTML = '';
-                    const img = document.createElement('img');
-                    img.src = event.target.result;
-                    img.alt = 'Custom Logo';
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.objectFit = 'cover';
-                    img.style.borderRadius = '32px';
-                    logoWrapper.appendChild(img);
-                    
-                    // Add tooltip back
-                    const tooltip = document.createElement('span');
-                    tooltip.className = 'upload-tooltip';
-                    tooltip.textContent = 'Click to change logo';
-                    logoWrapper.appendChild(tooltip);
-                    
-                    updateResetButton();
-                };
-                reader.readAsDataURL(file);
-            } else if (file) {
-                alert('Please select a valid image file (JPEG, PNG, GIF, etc.)');
-            }
-            // Reset file input so same file can be selected again
-            fileInput.value = '';
-        });
-        
-        // Reset to default logo
-        resetBtn.addEventListener('click', () => {
-            logoWrapper.innerHTML = originalContent;
-            updateResetButton();
-        });
-        
         // Add ripple effect for join button
         const btn = document.querySelector('.telegram-btn');
         if(btn) {
@@ -551,9 +418,6 @@
                 }, 500);
             });
         }
-        
-        // Initialize reset button state
-        updateResetButton();
     })();
 </script>
 
